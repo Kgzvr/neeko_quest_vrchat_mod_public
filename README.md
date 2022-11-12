@@ -1,1 +1,0 @@
-# quest_vrchat_mod_public
