@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Linq;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 using UnityEngine;
 using VRC;
 using uwuclara.Wrappers;
+using VRC.SDK3.Components;
+using VRC.SDKBase;
 
 namespace uwuclara.GameWorlds
 {
@@ -128,6 +131,29 @@ namespace uwuclara.GameWorlds
             }
 
         }
+        
+        internal static void setDetective(Player player)
+        {
+
+            if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.murder4ID))
+            {
+
+                GameObject gameObject = Player_Wrapper.getplayernode(player);
+                if (gameObject == null || gameObject.GetComponent<UdonBehaviour>() == null)
+                {
+                    throw new NullReferenceException();
+                }
+                gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignD");
+
+            }
+            else
+            {
+
+                MelonLoader.MelonLogger.Msg("You are not in the correct world.");
+
+            }
+
+        }
 
         internal static void setMurder(Player player)
         {
@@ -175,18 +201,109 @@ namespace uwuclara.GameWorlds
 
         }
 
-        internal static void setDetective(Player player)
+        internal static void bringRevolver()
         {
 
             if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.murder4ID))
             {
 
-                GameObject gameObject = Player_Wrapper.getplayernode(player);
-                if (gameObject == null || gameObject.GetComponent<UdonBehaviour>() == null)
+                foreach (GameObject gameObject2 in from L in (from gameObject in Resources.FindObjectsOfTypeAll<GameObject>() 
+                             where gameObject.name.Contains("Revolver") 
+                             select gameObject).ToList()
+                             where L.GetComponent<VRCPickup>()
+                             select L)
                 {
-                    throw new NullReferenceException();
+                    
+                    Networking.SetOwner(VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0, gameObject2);
+                    gameObject2.transform.position = VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0.GetPosition();
+
                 }
-                gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignD");
+
+            }
+            else
+            {
+
+                MelonLoader.MelonLogger.Msg("You are not in the correct world.");
+
+            }
+
+        }
+        
+        internal static void bringKnife()
+        {
+
+            if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.murder4ID))
+            {
+
+                foreach (GameObject gameObject2 in from L in (from gameObject in Resources.FindObjectsOfTypeAll<GameObject>() 
+                             where gameObject.name.Contains("Knife") 
+                             select gameObject).ToList()
+                         where L.GetComponent<VRCPickup>()
+                         select L)
+                {
+                    
+                    Networking.SetOwner(VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0, gameObject2);
+                    gameObject2.transform.position = VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0.GetPosition();
+
+                }
+
+            }
+            else
+            {
+
+                MelonLoader.MelonLogger.Msg("You are not in the correct world.");
+
+            }
+
+        }
+        
+        internal static void bringShotGun()
+        {
+
+            if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.murder4ID))
+            {
+
+                foreach (GameObject gameObject2 in from L in (from gameObject in Resources.FindObjectsOfTypeAll<GameObject>() 
+                             where gameObject.name.Contains("Shotgun") 
+                             select gameObject).ToList()
+                         where L.GetComponent<VRCPickup>()
+                         select L)
+                {
+
+                    gameObject2.AddComponent<MeshCollider>();
+                    Networking.SetOwner(VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0, gameObject2);
+                    gameObject2.transform.position = VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0.GetPosition();
+
+                }
+
+            }
+            else
+            {
+
+                MelonLoader.MelonLogger.Msg("You are not in the correct world.");
+
+            }
+
+        }
+        
+        internal static void bringLuger()
+        {
+
+            if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.murder4ID))
+            {
+
+                foreach (GameObject gameObject2 in from L in (from gameObject in Resources.FindObjectsOfTypeAll<GameObject>() 
+                             where gameObject.name.Contains("Luger") 
+                             select gameObject).ToList()
+                         where L.GetComponent<VRCPickup>()
+                         select L)
+                {
+                    
+                    gameObject2.AddComponent<MeshCollider>();
+                    Networking.SetOwner(VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0, gameObject2);
+                    gameObject2.transform.position = VRCPlayer.field_Internal_Static_VRCPlayer_0.prop_VRCPlayerApi_0.GetPosition();
+
+                }
 
             }
             else

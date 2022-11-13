@@ -29,8 +29,13 @@ namespace uwuclara.Menus.Pages_MainMenu
             murderMenuhacks.AddButton("Murderer Win", "Murderer Win", () => Murder4.setMurderWin());
             murderMenuhacks.AddButton("Bystander Win", "Bystander Win", () => Murder4.setBystenderWin());
 
-            //_murderMenuCatapage.AddCategory("Murder Hacks 2");
-            //var murderMenuhacks2 = _murderMenuCatapage.GetCategory("Murder Hacks 2");
+            _murderMenuCatapage.AddCategory("Murder Hacks 2");
+            var murderMenuhacks2 = _murderMenuCatapage.GetCategory("Murder Hacks 2");
+            
+            murderMenuhacks2.AddButton("Bring Knife", "Bring Knife", () => Murder4.bringKnife());
+            murderMenuhacks2.AddButton("Bring Revolver", "Bring Revolver", () => Murder4.bringRevolver());
+            murderMenuhacks2.AddButton("Bring ShotGun (Stand On Collider)", "Bring ShotGun (Stand On Collider)", () => Murder4.bringShotGun());
+            murderMenuhacks2.AddButton("Bring Luger", "Bring Luger", () => Murder4.bringLuger());
 
             _clubBMenuCatapage = gameworldhacks.AddCategoryPage("Club B Hacks", null, ResourceManager.Resources.gameJustBClubIcon);
 
