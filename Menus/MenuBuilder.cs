@@ -14,7 +14,7 @@ namespace uwuclara.Menus
 
             _uiManager = new UiManager("Neeko#0480", ResourceManager.Resources.uwuclara);
             
-            _uiManager.MainMenu.AddLabel("neeko mod", Assembly.GetExecutingAssembly().GetName().Version.ToString(), 25);
+            _uiManager.MainMenu.AddLabel("Neeko mod", Version, 25);
             _uiManager.MainMenu.AddSpacer();
             _uiManager.MainMenu.AddSpacer();
             _uiManager.MainMenu.AddSpacer();
