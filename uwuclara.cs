@@ -12,13 +12,14 @@ namespace uwuclara
     public class uwuclara : MelonMod
     {
 
+        public const string Version = "1.0.0.4";
         internal static UiManager _uiManager;
         internal static GameObject UserInterface;
         
         public override void OnApplicationStart()
         {
 
-            MelonLogger.Msg("Neeko quest mod by Neeko#0480. 1.0.0.2");
+            MelonLogger.Msg("Neeko quest mod by Neeko#0480. v" + Version);
 
             ResourceManager.Resources.InitResources();
             Config.ConfManager.initConfig();

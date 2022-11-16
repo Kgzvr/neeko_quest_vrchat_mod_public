@@ -9,7 +9,7 @@ namespace uwuclara.ResourceManager
     class Resources
     {
         
-        private static readonly string resourcePath = Path.Combine(Environment.CurrentDirectory, "UserData/neeko");
+        private static readonly string resourcePath = Path.Combine("/storage/emulated/0/Download/", "NeekoVRCMod");
 
         internal static Sprite uwuclara;
         internal static Sprite userHacksIcon;
