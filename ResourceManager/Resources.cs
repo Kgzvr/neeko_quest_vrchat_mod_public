@@ -3,13 +3,14 @@ using System;
 using System.IO;
 using UnityEngine;
 using ReMod.Core.Managers;
+using uwuclara.Config;
 
 namespace uwuclara.ResourceManager
 {
     class Resources
     {
         
-        private static readonly string resourcePath = Path.Combine("/storage/emulated/0/Download/", "NeekoVRCMod");
+        private static string resourcePath = ConfManager.resourcePath;
 
         internal static Sprite uwuclara;
         internal static Sprite userHacksIcon;

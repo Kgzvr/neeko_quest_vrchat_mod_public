@@ -1,11 +1,15 @@
 ﻿using MelonLoader;
+using System.IO;
 
 namespace uwuclara.Config
 {
     class ConfManager
     {
-
-        private const string SettingsCategory = "neeko";
+        
+        public static readonly string resourcePath = Path.Combine("/storage/emulated/0/Download/", "NeekoVRCMod");
+        
+        private const string SettingsCategory = "Neeko";
+        
         internal static MelonPreferences_Entry<int> fakePing;
         internal static MelonPreferences_Entry<float> fakeFPS;
         internal static MelonPreferences_Entry<bool> fakePingEnabled;
@@ -28,9 +32,9 @@ namespace uwuclara.Config
 
             MelonLogger.Msg("Initializing Config...");
 
-            var category = MelonPreferences.CreateCategory(SettingsCategory, "neeko");
+            var category = MelonPreferences.CreateCategory(SettingsCategory, "Neeko");
 
-            category.SetFilePath("UserData/neeko/config.cfg");
+            category.SetFilePath(resourcePath + "/config.cfg");
 
             fakePing = category.CreateEntry("fakePing", 30, "Fake Ping Value");
             fakeFPS = category.CreateEntry("fakeFPS", 80f, "Fake FPS Value");
