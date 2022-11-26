@@ -8,7 +8,7 @@ Installation :
           <ul>
                 <li>Download [LemonLoader](https://cdn.discordapp.com/attachments/946558976781336586/1002402723712487514/app-release.apk)</li>
                 <li>Patch com.vrchat.oculus.quest</li>
-                <li>Start VRChat and wait 10-20 mins (Waiting is long as quest is slow) (Every VRChat update will have to wait)</li>
+                <li>Start VRChat (Ignore Oculus warning and don't click restore) and wait 10-20 mins (Waiting is long as quest is slow) (Every VRChat update will have to wait)</li>
                 <li>Download Mod [MyEpicTestMod](https://github.com/gompoc/MyEpicTestMod/releases/download/v1.0.0/MyEpicTestMod.dll) (This is MUST to not let oculus close the game)</li>
                 <li>Download this Mod from Release Page</li>
                 <li>Upload it to ur mods folder (Android/data/com.vrchat.oculus.quest/files/Mods) thru SideQuest or Explorer.</li>
