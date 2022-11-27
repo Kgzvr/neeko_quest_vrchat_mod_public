@@ -10,6 +10,7 @@ namespace uwuclara.Menus.Pages_MainMenu
         private static ReCategoryPage _gameworldhacks;
         private static ReCategoryPage _murderMenuCatapage;
         private static ReCategoryPage _clubBMenuCatapage;
+        private static ReCategoryPage _amongASSMenuCatapage;
 
         internal static void GameWorldHacksMenu(UiManager _uiManager)
         {
@@ -35,7 +36,7 @@ namespace uwuclara.Menus.Pages_MainMenu
             murderMenuhacks2.AddButton("Bring Knife", "Bring Knife", () => Murder4.bringKnife());
             murderMenuhacks2.AddButton("Bring Revolver", "Bring Revolver", () => Murder4.bringRevolver());
             murderMenuhacks2.AddButton("Bring ShotGun (Stand On Collider)", "Bring ShotGun (Stand On Collider)", () => Murder4.bringShotGun());
-            murderMenuhacks2.AddButton("Bring Luger", "Bring Luger", () => Murder4.bringLuger());
+            murderMenuhacks2.AddButton("Bring Luger (Stand On Collider)", "Bring Luger (Stand On Collider)", () => Murder4.bringLuger());
 
             _clubBMenuCatapage = gameworldhacks.AddCategoryPage("Club B Hacks", null, ResourceManager.Resources.gameJustBClubIcon);
 
@@ -49,7 +50,23 @@ namespace uwuclara.Menus.Pages_MainMenu
             clubBMenuhacks.AddButton("Join room 5", "Join room 5", () => ClubB.joinRoom5());
             clubBMenuhacks.AddButton("Join room 6", "Join room 6", () => ClubB.joinRoom6());
             clubBMenuhacks.AddButton("Join room VIP", "Join room VIP", () => ClubB.joinRoomVIP());
-
+            
+            _amongASSMenuCatapage = gameworldhacks.AddCategoryPage("Among ASS Hacks", null, ResourceManager.Resources.gameAmongASSIcon);
+            
+            _amongASSMenuCatapage.AddCategory("Among ASS Hacks");
+            var amongASSMenuhacks = _amongASSMenuCatapage.GetCategory("Among ASS Hacks");
+            
+            amongASSMenuhacks.AddButton("Start Game", "Start Game", () => AmongASS_IHateMyself.startGame());
+            amongASSMenuhacks.AddButton("Abort Game", "Abort Game", () => AmongASS_IHateMyself.abortGame());
+            amongASSMenuhacks.AddButton("Importer Win", "Importer Win", () => AmongASS_IHateMyself.setImpostorWin());
+            amongASSMenuhacks.AddButton("Crew Win", "Crew Win", () => AmongASS_IHateMyself.setCrewMateWin());
+            amongASSMenuhacks.AddButton("Repair Oxygen", "Repair Oxygen", () => AmongASS_IHateMyself.repairOxygen());
+            amongASSMenuhacks.AddButton("Break Oxygen", "Break Oxygen", () => AmongASS_IHateMyself.breakOxygen());
+            amongASSMenuhacks.AddButton("Repair Light", "Repair Light", () => AmongASS_IHateMyself.fixlights());
+            amongASSMenuhacks.AddButton("Break Lights", "Break Lights", () => AmongASS_IHateMyself.breakLights());
+            amongASSMenuhacks.AddButton("Fix Comms", "Fix Comms", () => AmongASS_IHateMyself.fixComms());
+            amongASSMenuhacks.AddButton("Break Comms", "Break Comms", () => AmongASS_IHateMyself.breakComms());
+            
         }
 
     }

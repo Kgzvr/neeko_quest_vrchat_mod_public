@@ -12,7 +12,7 @@ namespace uwuclara
     public class uwuclara : MelonMod
     {
 
-        public const string Version = "1.0.0.4";
+        public const string Version = "1.0.0.5";
         internal static UiManager _uiManager;
         internal static GameObject UserInterface;
         

@@ -22,7 +22,8 @@ namespace uwuclara.GameWorlds
                 {
                     if (gameObject.name.Contains("Game Logic"))
                     {
-                        gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncStart");
+                        gameObject.GetComponent<UdonBehaviour>()
+                            .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncStart");
                     }
                 }
 
@@ -47,7 +48,8 @@ namespace uwuclara.GameWorlds
                 {
                     if (gameObject.name.Contains("Game Logic"))
                     {
-                        gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAbort");
+                        gameObject.GetComponent<UdonBehaviour>()
+                            .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAbort");
                     }
                 }
 
@@ -71,7 +73,8 @@ namespace uwuclara.GameWorlds
                 {
                     if (gameObject.name.Contains("Game Logic"))
                     {
-                        gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncVictoryM");
+                        gameObject.GetComponent<UdonBehaviour>()
+                            .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncVictoryM");
                     }
                 }
 
@@ -95,7 +98,8 @@ namespace uwuclara.GameWorlds
                 {
                     if (gameObject.name.Contains("Game Logic"))
                     {
-                        gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncVictoryB");
+                        gameObject.GetComponent<UdonBehaviour>()
+                            .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncVictoryB");
                     }
                 }
 
@@ -120,7 +124,9 @@ namespace uwuclara.GameWorlds
                 {
                     throw new NullReferenceException();
                 }
-                gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncKill");
+                
+                gameObject.GetComponent<UdonBehaviour>()
+                    .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncKill");
 
             }
             else
@@ -143,7 +149,9 @@ namespace uwuclara.GameWorlds
                 {
                     throw new NullReferenceException();
                 }
-                gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignD");
+                
+                gameObject.GetComponent<UdonBehaviour>()
+                    .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignD");
 
             }
             else
@@ -166,7 +174,9 @@ namespace uwuclara.GameWorlds
                 {
                     throw new NullReferenceException();
                 }
-                gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignM");
+                
+                gameObject.GetComponent<UdonBehaviour>()
+                    .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignM");
 
             }
             else
@@ -189,7 +199,9 @@ namespace uwuclara.GameWorlds
                 {
                     throw new NullReferenceException();
                 }
-                gameObject.GetComponent<UdonBehaviour>().SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignB");
+                
+                gameObject.GetComponent<UdonBehaviour>()
+                    .SendCustomNetworkEvent(NetworkEventTarget.All, "SyncAssignB");
 
             }
             else
@@ -236,8 +248,8 @@ namespace uwuclara.GameWorlds
             {
 
                 foreach (GameObject gameObject2 in from L in (from gameObject in Resources.FindObjectsOfTypeAll<GameObject>() 
-                             where gameObject.name.Contains("Knife") 
-                             select gameObject).ToList()
+                         where gameObject.name.Contains("Knife") 
+                         select gameObject).ToList()
                          where L.GetComponent<VRCPickup>()
                          select L)
                 {
@@ -264,8 +276,8 @@ namespace uwuclara.GameWorlds
             {
 
                 foreach (GameObject gameObject2 in from L in (from gameObject in Resources.FindObjectsOfTypeAll<GameObject>() 
-                             where gameObject.name.Contains("Shotgun") 
-                             select gameObject).ToList()
+                         where gameObject.name.Contains("Shotgun") 
+                         select gameObject).ToList()
                          where L.GetComponent<VRCPickup>()
                          select L)
                 {
@@ -293,8 +305,8 @@ namespace uwuclara.GameWorlds
             {
 
                 foreach (GameObject gameObject2 in from L in (from gameObject in Resources.FindObjectsOfTypeAll<GameObject>() 
-                             where gameObject.name.Contains("Luger") 
-                             select gameObject).ToList()
+                         where gameObject.name.Contains("Luger") 
+                         select gameObject).ToList()
                          where L.GetComponent<VRCPickup>()
                          select L)
                 {

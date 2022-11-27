@@ -12,7 +12,7 @@ namespace uwuclara.Menus
 
             MelonLogger.Msg("Initializing UI...");
 
-            _uiManager = new UiManager("Neeko#0480", ResourceManager.Resources.uwuclara);
+            _uiManager = new UiManager("Neeko#0480", ResourceManager.Resources.uwuclaraIcon);
             
             _uiManager.MainMenu.AddLabel("Neeko mod", Version, 25);
             _uiManager.MainMenu.AddSpacer();
