@@ -27,6 +27,7 @@ namespace uwuclara.Config
         internal static MelonPreferences_Entry<float> flySpeedValue;
         internal static MelonPreferences_Entry<int> headLightRange;
         internal static MelonPreferences_Entry<float> headLightPower;
+        internal static MelonPreferences_Entry<bool> playerLogger;
         public static void initConfig()
         {
 
@@ -53,6 +54,7 @@ namespace uwuclara.Config
             flySpeedValue = category.CreateEntry("flySpeedValue", 8f, "Fly Speed Value");
             headLightRange = category.CreateEntry("headLightRange", 5, "HeadLight Range");
             headLightPower = category.CreateEntry("headLightPower", 0.50f, "HeadLight Power");
+            playerLogger = category.CreateEntry("playerLogger", false, "Log Player Join/Leave Events");
 
             category.SaveToFile();
 

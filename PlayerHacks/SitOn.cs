@@ -25,20 +25,20 @@ namespace uwuclara.PlayerHacks
         internal static void sitOnPlayerUpdate()
         {
 
-            if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.Touch) && SitOn.SitOnEnabled)
+            if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.Touch) && SitOnEnabled)
             {
-                SitOn.SitOnEnabled = false;
+                SitOnEnabled = false;
                 Networking.LocalPlayer.UseLegacyLocomotion();
                 Physics.gravity = new Vector3(0f, -9.81f, 0f);
             }
 
-            if (SitOn.SitOnEnabled)
+            if (SitOnEnabled)
             {
-                if (SitOn.Caller == null || SitOn.Target == null)
+                if (Caller == null || Target == null)
                 {
-                    SitOn.Caller = null;
-                    SitOn.Target = null;
-                    SitOn.SitOnEnabled = false;
+                    Caller = null;
+                    Target = null;
+                    SitOnEnabled = false;
                 }
                 else
                 {
@@ -49,11 +49,11 @@ namespace uwuclara.PlayerHacks
                     try
                     {
 
-                        SitOn.Caller.gameObject.transform.position = SitOn.Target.GetBonePosition(SitOn.Bone) + new Vector3(0f, 0.15f, 0f);
+                        Caller.gameObject.transform.position = Target.GetBonePosition(Bone) + new Vector3(0f, 0.15f, 0f);
                     }
                     catch
                     {
-                        SitOn.SitOnEnabled = false;
+                        SitOnEnabled = false;
                         Physics.gravity = new Vector3(0f, -9.81f, 0f);
                     }
 

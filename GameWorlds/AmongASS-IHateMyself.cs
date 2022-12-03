@@ -17,7 +17,7 @@ namespace uwuclara.GameWorlds
 					if (gameObject.name.Contains("Game Logic"))
 					{
 						gameObject.GetComponent<UdonBehaviour>()
-							.SendCustomNetworkEvent(NetworkEventTarget.All, "SyncStartGame");
+							.SendCustomNetworkEvent(NetworkEventTarget.All, "Btn_Start");
 					}
 				}
 			}
@@ -153,6 +153,51 @@ namespace uwuclara.GameWorlds
 					{
 						gameObject.GetComponent<UdonBehaviour>()
 							.SendCustomNetworkEvent(NetworkEventTarget.All, "SyncRepairComms");
+					}
+				}
+			}
+		}
+		
+		internal static void completeTasks()
+		{
+			if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.amongUSID))
+			{
+				foreach (GameObject gameObject in Resources.FindObjectsOfTypeAll<GameObject>())
+				{
+					if (gameObject.name.Contains("Game Logic"))
+					{
+						gameObject.GetComponent<UdonBehaviour>()
+							.SendCustomNetworkEvent(NetworkEventTarget.All, "OnLocalPlayerCompletedTask");
+					}
+				}
+			}
+		}
+
+		internal static void startMeeting()
+		{
+			if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.amongUSID))
+			{
+				foreach (GameObject gameObject in Resources.FindObjectsOfTypeAll<GameObject>())
+				{
+					if (gameObject.name.Contains("Game Logic"))
+					{
+						gameObject.GetComponent<UdonBehaviour>()
+							.SendCustomNetworkEvent(NetworkEventTarget.All, "StartMeeting");
+					}
+				}
+			}
+		}
+		
+		internal static void stopVoting()
+		{
+			if (RoomManager.field_Internal_Static_ApiWorld_0.id.Contains(Game_WorldIDs.amongUSID))
+			{
+				foreach (GameObject gameObject in Resources.FindObjectsOfTypeAll<GameObject>())
+				{
+					if (gameObject.name.Contains("Game Logic"))
+					{
+						gameObject.GetComponent<UdonBehaviour>()
+							.SendCustomNetworkEvent(NetworkEventTarget.All, "SyncCloseVoting");
 					}
 				}
 			}

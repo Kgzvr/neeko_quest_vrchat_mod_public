@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using VRC.Udon;
 using VRC.Networking;
 using UnityEngine;
@@ -6,11 +7,16 @@ using VRC.UI;
 using VRC;
 using VRC.Core;
 using UnhollowerBaseLib;
+using uwuclara.Network;
 
 namespace uwuclara.Wrappers
 {
+    
     class Player_Wrapper
     {
+        
+        private static IDictionary<string, Player> oldlist;
+        
         internal static GameObject GetLocalPlayer()
         {
             foreach (GameObject gameObject in Object_Wrapper.GetAllGameObjects())
@@ -96,5 +102,44 @@ namespace uwuclara.Wrappers
             return null;
         }
 
+        
+        internal static void registerUpdatePlayer() // ugly, no idea the perf. impact
+        {
+            
+            IDictionary<string, Player> newlist = new Dictionary<string, Player>();
+
+            if (oldlist != null)
+            {
+                
+                foreach (Player newPlayer in PlayerManager.prop_PlayerManager_0.field_Private_List_1_Player_0.ToArray())
+                {
+                    if(!string.IsNullOrWhiteSpace(newPlayer.prop_VRCPlayerApi_0.displayName))
+                    {
+                        newlist.Add(newPlayer.prop_VRCPlayerApi_0.displayName, newPlayer);
+                    }
+                }
+                
+                var joinPlayers = newlist.Keys.Except(oldlist.Keys);
+                var leftPlayers = oldlist.Keys.Except(newlist.Keys);
+
+                foreach (string joinPlayer in joinPlayers)
+                {
+                    Player player = newlist[joinPlayer];
+                    PlayerEvent.OnJoinEvent(player);
+                }
+                foreach (string leftPlayer in leftPlayers)
+                {
+                    Player player = oldlist[leftPlayer];
+                    oldlist.Remove(leftPlayer); //reset
+                    PlayerEvent.OnLeaveEvent(player);
+                }
+
+            }
+
+            oldlist = newlist;
+            
+        }
+        
     }
+    
 }

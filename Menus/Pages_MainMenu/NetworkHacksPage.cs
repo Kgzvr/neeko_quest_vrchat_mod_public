@@ -63,6 +63,7 @@ namespace uwuclara.Menus.Pages_MainMenu
             _networkhacks_logger.AddToggle("Udon Logger", "Udon Logger", UdonLoggerToggle, Config.ConfManager.udonLogger.Value);
             _networkhacks_logger.AddToggle("RPC Logger", "RPC Logger", RPCLoggerToggle, Config.ConfManager.rpcLogger.Value);
             _networkhacks_logger.AddToggle("Avatar Logger", "Avatar Logger", AvatarLoggerToggle, Config.ConfManager.avatarLogging.Value);
+            _networkhacks_logger.AddToggle("Player Join/Leave Logger", "Player Join/Leave Logger", PlayerLoggerToggle, Config.ConfManager.playerLogger.Value);
 
         }
 

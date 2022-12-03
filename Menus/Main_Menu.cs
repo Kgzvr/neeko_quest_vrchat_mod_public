@@ -250,6 +250,22 @@ namespace uwuclara.Menus
             MelonPreferences.Save();
 
         }
+        
+        internal static void PlayerLoggerToggle(bool value)
+        {
+
+            if (Config.ConfManager.playerLogger.Value)
+            {
+                Config.ConfManager.playerLogger.Value = value;
+            }
+            else
+            {
+                Config.ConfManager.playerLogger.Value = value;
+            }
+
+            MelonPreferences.Save();
+
+        }
 
         internal static void RPCLoggerToggle(bool value)
         {

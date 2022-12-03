@@ -6,13 +6,15 @@ using uwuclara.Menus;
 using UnhollowerRuntimeLib;
 using UnityEngine;
 using uwuclara.Network;
+using uwuclara.Wrappers;
+using uwuclara.PlayerHacks;
 
 namespace uwuclara
 {
     public class uwuclara : MelonMod
     {
 
-        public const string Version = "1.0.0.5";
+        public const string Version = "1.0.0.7";
         internal static UiManager _uiManager;
         internal static GameObject UserInterface;
         
@@ -38,18 +40,20 @@ namespace uwuclara
 
         public override void OnUpdate()
         {
-
-            if (PlayerHacks.PlayerESP.PlayerESPEnabled)
+            
+            Player_Wrapper.registerUpdatePlayer();
+            
+            if (PlayerESP.PlayerESPEnabled)
             {
                 new WaitForSeconds(10f);
-                PlayerHacks.PlayerESP.espmethod();
+                PlayerESP.espmethod();
             }
 
-            PlayerHacks.FlyHack.fly();
+            FlyHack.fly();
 
-            PlayerHacks.FlyHack.jetPack();
+            FlyHack.jetPack();
 
-            PlayerHacks.SitOn.sitOnPlayerUpdate();
+            SitOn.sitOnPlayerUpdate();
 
         }
 

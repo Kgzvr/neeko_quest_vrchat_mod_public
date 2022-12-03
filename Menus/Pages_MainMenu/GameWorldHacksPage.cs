@@ -53,19 +53,30 @@ namespace uwuclara.Menus.Pages_MainMenu
             
             _amongASSMenuCatapage = gameworldhacks.AddCategoryPage("Among ASS Hacks", null, ResourceManager.Resources.gameAmongASSIcon);
             
-            _amongASSMenuCatapage.AddCategory("Among ASS Hacks");
-            var amongASSMenuhacks = _amongASSMenuCatapage.GetCategory("Among ASS Hacks");
+            _amongASSMenuCatapage.AddCategory("Among ASS Hacks 1");
+            var amongASSMenuhacks = _amongASSMenuCatapage.GetCategory("Among ASS Hacks 1");
             
             amongASSMenuhacks.AddButton("Start Game", "Start Game", () => AmongASS_IHateMyself.startGame());
             amongASSMenuhacks.AddButton("Abort Game", "Abort Game", () => AmongASS_IHateMyself.abortGame());
             amongASSMenuhacks.AddButton("Importer Win", "Importer Win", () => AmongASS_IHateMyself.setImpostorWin());
             amongASSMenuhacks.AddButton("Crew Win", "Crew Win", () => AmongASS_IHateMyself.setCrewMateWin());
-            amongASSMenuhacks.AddButton("Repair Oxygen", "Repair Oxygen", () => AmongASS_IHateMyself.repairOxygen());
-            amongASSMenuhacks.AddButton("Break Oxygen", "Break Oxygen", () => AmongASS_IHateMyself.breakOxygen());
-            amongASSMenuhacks.AddButton("Repair Light", "Repair Light", () => AmongASS_IHateMyself.fixlights());
-            amongASSMenuhacks.AddButton("Break Lights", "Break Lights", () => AmongASS_IHateMyself.breakLights());
-            amongASSMenuhacks.AddButton("Fix Comms", "Fix Comms", () => AmongASS_IHateMyself.fixComms());
-            amongASSMenuhacks.AddButton("Break Comms", "Break Comms", () => AmongASS_IHateMyself.breakComms());
+            
+            _amongASSMenuCatapage.AddCategory("Among ASS Hacks 2");
+            var amongASSMenuhacks2 = _amongASSMenuCatapage.GetCategory("Among ASS Hacks 2");
+            
+            amongASSMenuhacks2.AddButton("Complete Tasks", "Complete Tasks", () => AmongASS_IHateMyself.completeTasks());
+            amongASSMenuhacks2.AddButton("Stop Voting", "Stop Voting", () => AmongASS_IHateMyself.stopVoting());
+            amongASSMenuhacks2.AddButton("Start Meeting", "Start Meeting", () => AmongASS_IHateMyself.startMeeting());
+            
+            _amongASSMenuCatapage.AddCategory("Among ASS Hacks 3");
+            var amongASSMenuhacks3 = _amongASSMenuCatapage.GetCategory("Among ASS Hacks 3");
+            
+            amongASSMenuhacks3.AddButton("Repair Oxygen", "Repair Oxygen", () => AmongASS_IHateMyself.repairOxygen());
+            amongASSMenuhacks3.AddButton("Break Oxygen", "Break Oxygen", () => AmongASS_IHateMyself.breakOxygen());
+            amongASSMenuhacks3.AddButton("Repair Light", "Repair Light", () => AmongASS_IHateMyself.fixlights());
+            amongASSMenuhacks3.AddButton("Break Lights", "Break Lights", () => AmongASS_IHateMyself.breakLights());
+            amongASSMenuhacks3.AddButton("Fix Comms", "Fix Comms", () => AmongASS_IHateMyself.fixComms());
+            amongASSMenuhacks3.AddButton("Break Comms", "Break Comms", () => AmongASS_IHateMyself.breakComms());
             
         }
 
