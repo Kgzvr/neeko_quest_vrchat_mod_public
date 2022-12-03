@@ -127,11 +127,19 @@ namespace uwuclara.Wrappers
                     Player player = newlist[joinPlayer];
                     PlayerEvent.OnJoinEvent(player);
                 }
+                
+                List<string> tempList = new List<string>();
+                
                 foreach (string leftPlayer in leftPlayers)
                 {
                     Player player = oldlist[leftPlayer];
-                    oldlist.Remove(leftPlayer); //reset
+                    tempList.Add(leftPlayer); //reset
                     PlayerEvent.OnLeaveEvent(player);
+                }
+
+                foreach (string temp in tempList)
+                {
+                    oldlist.Remove(temp);
                 }
 
             }
