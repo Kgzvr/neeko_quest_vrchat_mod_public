@@ -15,7 +15,7 @@ namespace uwuclara.Wrappers
     class Player_Wrapper
     {
         
-        private static IDictionary<string, Player> oldlist;
+        private static IDictionary<int, Player> oldlist;
         
         internal static GameObject GetLocalPlayer()
         {
@@ -106,38 +106,38 @@ namespace uwuclara.Wrappers
         internal static void registerUpdatePlayer() // ugly, no idea the perf. impact
         {
             
-            IDictionary<string, Player> newlist = new Dictionary<string, Player>();
+            IDictionary<int, Player> newlist = new Dictionary<int, Player>();
 
             if (oldlist != null)
             {
                 
                 foreach (Player newPlayer in PlayerManager.prop_PlayerManager_0.field_Private_List_1_Player_0.ToArray())
                 {
-                    if(!string.IsNullOrWhiteSpace(newPlayer.prop_VRCPlayerApi_0.displayName))
+                    if(newPlayer.prop_VRCPlayerApi_0 != null && newPlayer.prop_APIUser_0 != null)
                     {
-                        newlist.Add(newPlayer.prop_VRCPlayerApi_0.displayName, newPlayer);
+                        newlist.Add(newPlayer.prop_VRCPlayerApi_0.playerId, newPlayer);
                     }
                 }
                 
                 var joinPlayers = newlist.Keys.Except(oldlist.Keys);
                 var leftPlayers = oldlist.Keys.Except(newlist.Keys);
 
-                foreach (string joinPlayer in joinPlayers)
+                foreach (int joinPlayer in joinPlayers)
                 {
                     Player player = newlist[joinPlayer];
                     PlayerEvent.OnJoinEvent(player);
                 }
                 
-                List<string> tempList = new List<string>();
+                List<int> tempList = new List<int>();
                 
-                foreach (string leftPlayer in leftPlayers)
+                foreach (int leftPlayer in leftPlayers)
                 {
                     Player player = oldlist[leftPlayer];
                     tempList.Add(leftPlayer); //reset
                     PlayerEvent.OnLeaveEvent(player);
                 }
 
-                foreach (string temp in tempList)
+                foreach (int temp in tempList)
                 {
                     oldlist.Remove(temp);
                 }
